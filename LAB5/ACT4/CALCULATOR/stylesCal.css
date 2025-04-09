@@ -1,0 +1,76 @@
+body {
+    background-color: #f2f2f2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  .casio {
+    background-color: #3a3a3a;
+    border: 4px solid #2a2a2a;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: inset 0 0 10px #1c1c1c, 0 0 10px rgba(0,0,0,0.5);
+    width: 260px;
+  }
+  
+  .screen {
+    background-color: #e2f5c2;
+    color: #000;
+    text-align: right;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    box-shadow: inset -2px -2px 5px rgba(0, 0, 0, 0.2);
+    height: 3rem;
+    overflow-x: auto;
+  }
+  
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.4rem;
+  }
+  
+  button {
+    padding: 0.75rem;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #4d4d4d;
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 2px #222;
+    transition: transform 0.1s, background-color 0.2s;
+  }
+  
+  button:active {
+    transform: translateY(2px);
+    box-shadow: none;
+  }
+  
+  button:hover {
+    background-color: #6e6e6e;
+  }
+  
+  .igual {
+    grid-row: span 2;
+    background-color: #c1292e;
+  }
+  
+  .igual:hover {
+    background-color: #a02224;
+  }
+  
+  .cero {
+    grid-column: span 2;
+  }
+  
+  button:focus {
+    outline: none;
+  }
+  
