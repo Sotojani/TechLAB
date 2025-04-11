@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Juego de Adivinanza</title>
+  <link rel="stylesheet" href="stylesRi.css">
+</head>
+<body>
+  <div class="container">
+    <h1>🎯 Adivina el número</h1>
+    <p>Estoy pensando en un número del <strong>1 al 20</strong>. ¿Puedes adivinarlo?</p>
+    
+    <input type="number" id="entrada" placeholder="Ingresa tu número" min="1" max="20" />
+    <button onclick="adivinar()">Adivinar</button>
+    
+    <div id="mensaje"></div>
+    <button onclick="reiniciar()" class="reiniciar">🔄 Jugar de nuevo</button>
+  </div>
+
+  <script>
+    let numeroSecreto = Math.floor(Math.random() * 20) + 1;
+    let intentos = 0;
+
+    function adivinar() {
+      const entrada = document.getElementById("entrada");
+      const mensaje = document.getElementById("mensaje");
+      const valor = parseInt(entrada.value);
+      intentos++;
+
+      if (isNaN(valor) || valor < 1 || valor > 20) {
+        mensaje.textContent = "❌ Ingresa un número válido entre 1 y 20.";
+      } else if (valor < numeroSecreto) {
+        mensaje.textContent = "📉 Muy bajo. Intenta de nuevo.";
+      } else if (valor > numeroSecreto) {
+        mensaje.textContent = "📈 Muy alto. Intenta de nuevo.";
+      } else {
+        mensaje.innerHTML = `🎉 ¡Correcto! El número era <strong>${numeroSecreto}</strong>. Lo adivinaste en <strong>${intentos}</strong> intentos.`;
+      }
+
+      entrada.value = "";
+    }
+
+    function reiniciar() {
+      numeroSecreto = Math.floor(Math.random() * 20) + 1;
+      intentos = 0;
+      document.getElementById("mensaje").textContent = "";
+      document.getElementById("entrada").value = "";
+    }
+  </script>
+</body>
+</html>
